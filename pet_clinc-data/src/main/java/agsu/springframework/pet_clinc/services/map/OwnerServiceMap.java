@@ -2,10 +2,16 @@ package agsu.springframework.pet_clinc.services.map;
 
 import java.util.Set;
 
-import agsu.springframework.pet_clinc.model.Owner;
-import agsu.springframework.pet_clinc.services.CrudService;
+import org.springframework.stereotype.Service;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner,Long>{
+import agsu.springframework.pet_clinc.model.Owner;
+import agsu.springframework.pet_clinc.services.OwnerService;
+
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
+    public OwnerServiceMap() {
+    }
 
     @Override
     public Owner findById(Long id) {
@@ -17,9 +23,15 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         return super.findAll();
     }
 
+    @Override
+    public Owner findByLastName(String lastName) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
     @Override
     public Owner save(Owner object) {
+        System.out.println("Guardando un OWNER...");
         return super.save(object.getId(), object);
     }
 
@@ -32,5 +44,5 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     public void deleteById(Long id) {
         super.deleteById(id);
     }
-    
+
 }
