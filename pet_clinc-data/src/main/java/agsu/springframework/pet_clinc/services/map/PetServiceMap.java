@@ -9,7 +9,7 @@ public abstract class PetServiceMap extends AbstractMapService<Pet,Long> impleme
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
@@ -32,11 +32,6 @@ public abstract class PetServiceMap extends AbstractMapService<Pet,Long> impleme
         return super.findById(id);
     }
 
-    @Override
-    Pet save(Long id, Pet object) {
-        return super.save(id, object);
-    }
-    
     
 
 }
