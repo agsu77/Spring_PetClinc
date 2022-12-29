@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
     <h1 th:text="'List of owners Page'" >H1</h1>
     <a href="/">Go to home</a>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>

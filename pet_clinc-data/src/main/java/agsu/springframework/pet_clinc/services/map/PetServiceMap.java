@@ -2,10 +2,13 @@ package agsu.springframework.pet_clinc.services.map;
 
 import java.util.Set;
 
-import agsu.springframework.pet_clinc.model.Pet;
-import agsu.springframework.pet_clinc.services.CrudService;
+import org.springframework.stereotype.Service;
 
-public abstract class PetServiceMap extends AbstractMapService<Pet,Long> implements CrudService<Pet,Long> {
+import agsu.springframework.pet_clinc.model.Pet;
+import agsu.springframework.pet_clinc.services.PetService;
+
+@Service
+public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
 
     @Override
     public Pet save(Pet object) {
