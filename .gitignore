@@ -27,3 +27,9 @@ hs_err_pid*
 target/*
 *target*
 .vscode
+pet_clinc-data/target/*
+pet_clinc-data/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+pet_clinc-web/target/pet_clinc-web-1.0-SNAPSHOT.jar.original
+pet_clinc-web/target/surefire-reports/agsu.springframework.pet_clinc.PetClincApplicationTests.txt
+pet_clinc-web/target/surefire-reports/TEST-agsu.springframework.pet_clinc.PetClincApplicationTests.xml
+pet_clinc-web/target/pet_clinc-web-1.0-SNAPSHOT.jar.original
