@@ -10,6 +10,7 @@ import agsu.springframework.pet_clinc.model.Pet;
 import agsu.springframework.pet_clinc.model.PetType;
 import agsu.springframework.pet_clinc.model.Speciality;
 import agsu.springframework.pet_clinc.model.Vet;
+import agsu.springframework.pet_clinc.model.Visit;
 import agsu.springframework.pet_clinc.services.OwnerService;
 import agsu.springframework.pet_clinc.services.PetTypeService;
 import agsu.springframework.pet_clinc.services.SpecialityService;
@@ -66,7 +67,12 @@ public class DataLoader implements CommandLineRunner {
         owner1.getPets().add(pet1);
 
         ownerService.save(owner1);
-        
+
+        Visit visitDog = new Visit();
+        visitDog.setDate(LocalDate.now());
+        visitDog.setDescription("La visita del rope");
+        visitDog.setPet(pet1);
+
         Owner owner2 = new Owner();
         owner2.setFirstName("Carlos Maria");
         owner2.setLastName("Morales");
