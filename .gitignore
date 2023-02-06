@@ -33,3 +33,6 @@ pet_clinc-web/target/pet_clinc-web-1.0-SNAPSHOT.jar.original
 pet_clinc-web/target/surefire-reports/agsu.springframework.pet_clinc.PetClincApplicationTests.txt
 pet_clinc-web/target/surefire-reports/TEST-agsu.springframework.pet_clinc.PetClincApplicationTests.xml
 pet_clinc-web/target/pet_clinc-web-1.0-SNAPSHOT.jar.original
+*.prefs
+*.project
+*.factorypath
