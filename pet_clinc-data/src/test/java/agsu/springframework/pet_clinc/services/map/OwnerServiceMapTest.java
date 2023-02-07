@@ -1,9 +1,4 @@
-package agsu.springframework.pet_clinc.services;
-
-import agsu.springframework.pet_clinc.model.Owner;
-import agsu.springframework.pet_clinc.services.map.OwnerServiceMap;
-import agsu.springframework.pet_clinc.services.map.PetServiceMap;
-import agsu.springframework.pet_clinc.services.map.PetTypeServiceMap;
+package agsu.springframework.pet_clinc.services.map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -13,6 +8,8 @@ import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import agsu.springframework.pet_clinc.model.Owner;
 
 public class OwnerServiceMapTest {
 
