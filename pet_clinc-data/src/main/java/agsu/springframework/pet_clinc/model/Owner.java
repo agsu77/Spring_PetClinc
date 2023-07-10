@@ -21,9 +21,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "owners")
-public class Owner extends Person{
+public class Owner extends Person {
     @Builder
-    public Owner(Long id, String firstName, String lastName, String addres, String city, String telphone, Set<Pet> pets) {
+    public Owner(Long id, String firstName, String lastName, String addres, String city, String telphone,
+            Set<Pet> pets) {
         super(id, firstName, lastName);
         this.addres = addres;
         this.city = city;
@@ -39,5 +40,5 @@ public class Owner extends Person{
     private String telphone;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
-    
+
 }

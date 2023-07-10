@@ -1,6 +1,7 @@
 package agsu.springframework.pet_clinc.services.jpa;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ import agsu.springframework.pet_clinc.services.OwnerService;
 
 @Service
 @Profile("springdatajpa")
-public class OwnerServiceJPA  implements OwnerService{
+public class OwnerServiceJPA implements OwnerService {
 
     public final OwnerRepository ownerRepository;
     public final PetRepository petRepository;
@@ -31,17 +32,16 @@ public class OwnerServiceJPA  implements OwnerService{
     @Override
     public Owner findById(Long id) {
         Optional<Owner> opOwner = ownerRepository.findById(id);
-        if(opOwner.isPresent()){
+        if (opOwner.isPresent()) {
             return opOwner.get();
-        }else{
+        } else {
             return null;
         }
     }
 
     @Override
     public Owner save(Owner object) {
-        Owner ownerSaved = ownerRepository.save(object);
-        return ownerSaved;
+        return ownerRepository.save(object);
     }
 
     @Override
@@ -65,5 +65,10 @@ public class OwnerServiceJPA  implements OwnerService{
     public Owner findByLastName(String lastName) {
         return ownerRepository.findByLastName(lastName);
     }
-    
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);
+    }
+
 }

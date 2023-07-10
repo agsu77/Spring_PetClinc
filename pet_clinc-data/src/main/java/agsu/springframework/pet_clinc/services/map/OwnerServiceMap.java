@@ -1,5 +1,6 @@
 package agsu.springframework.pet_clinc.services.map;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.context.annotation.Profile;
@@ -12,7 +13,7 @@ import agsu.springframework.pet_clinc.services.PetService;
 import agsu.springframework.pet_clinc.services.PetTypeService;
 
 @Service
-@Profile({"default","map"})
+@Profile({ "default", "map" })
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetService petService;
@@ -36,23 +37,23 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findByLastName(String lastName) {
         return this.findAll().stream().filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
-            .findFirst().orElse(null);
+                .findFirst().orElse(null);
     }
 
     @Override
     public Owner save(Owner object) {
-        if(object != null){
-            if(object.getPets() != null){
+        if (object != null) {
+            if (object.getPets() != null) {
                 object.getPets().forEach(pet -> {
-                    if(pet.getPetType() != null){
-                        if(pet.getPetType().getId() == null){
+                    if (pet.getPetType() != null) {
+                        if (pet.getPetType().getId() == null) {
                             pet.setPetType(petTypeService.save(pet.getPetType()));
                         }
-                    }else{
+                    } else {
                         throw new RuntimeException("Pet type is required");
                     }
 
-                    if(pet.getId() == null){
+                    if (pet.getId() == null) {
                         Pet savedPet = petService.save(pet);
                         pet.setId(savedPet.getId());
                     }
@@ -70,6 +71,12 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        // TODO Implementar...
+        throw new UnsupportedOperationException("Unimplemented method 'findAllByLastNameLike'");
     }
 
 }

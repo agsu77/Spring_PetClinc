@@ -13,12 +13,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hamcrest.beans.HasProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -37,7 +37,7 @@ public class OwnerControllerTest {
     MockMvc mockMVC;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         owners = new HashSet<>();
         owners.add(Owner.builder().id(1L).build());
         owners.add(Owner.builder().id(2L).build());
@@ -46,19 +46,12 @@ public class OwnerControllerTest {
     }
 
     @Test
-    void testFindOwners() throws Exception{
+    void findOwners() throws Exception {
         mockMVC.perform(get("/owners/find")).andExpect(status().isOk())
-            .andExpect(view().name("notimplemented"));
-    }
+                .andExpect(view().name("owners/findOwners"))
+                .andExpect(model().attributeExists("owner"));
 
-    @Test
-    void testListOwners() throws Exception {
-        when(ownerService.findAll()).thenReturn(owners);
-
-        mockMVC.perform(get("/owners")).andExpect(status().isOk())
-            .andExpect(view().name("owners/owners"))
-            .andExpect(model().attribute("owners", hasSize(2) ));
-
+        Mockito.verifyNoInteractions(ownerService);
     }
 
     @Test
